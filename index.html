@@ -1,92 +1,63 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-  <title>Descargar Archivos</title>
-  <style>
-    /* Estilos CSS existentes */
-    body {
-      background-color: #007BFF;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 20px;
-    }
+    <title>Descarga</title>
+    <style>
+        body {
+            background-color: blue;
+        }
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+        }
 
-    a {
-      display: inline-block;
-      text-decoration: none;
-      color: white;
-      padding: 10px 20px;
-      background-color: #0056b3;
-      border-radius: 5px;
-      margin-top: 20px;
-      font-size: 20px;
-    }
-
-    .logo {
-      display: block;
-      margin: 30px auto;
-      max-width: 200px;
-    }
-
-    /* Nuevos estilos para el menú desplegable */
-    .menu-icon {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-      font-size: 24px;
-    }
-
-    .menu {
-      display: none;
-      position: absolute;
-      top: 50px;
-      right: 10px;
-      background-color: #0056b3;
-      border-radius: 5px;
-      padding: 10px;
-    }
-
-    .menu a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      margin-bottom: 5px;
-    }
-  </style>
-  <!-- Etiqueta de script de Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1256223202782584"
-    crossorigin="anonymous"></script>
+        #downloadBtn {
+            padding: 10px 20px;
+            background-color: white;
+            color: blue;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="menu-icon">&#9776;</div>
-  <img class="logo" src="tu-logo.png" alt="Tu Logo">
-  <h1>Descarga el archivo aquí abajo:</h1>
-  <a href="URL_DE_DESCARGA_DIRECTA_DEL_ARCHIVO" download>
-    Descargar
-  </a>
-  <div class="menu" id="menu">
-    <a href="https://t.me/angelitodlzinn">Owner</a>
-    <!-- Otros elementos del menú si los deseas -->
-  </div>
+    <div id="container">
+        <h1>Descarga aquí</h1>
+        <a id="downloadBtn" href="#" onclick="startDownload()">Descargar</a>
+        <p id="countdown">20</p>
+    </div>
 
-  <script>
-    // JavaScript para mostrar/ocultar el menú al hacer clic en el ícono
-    const menuIcon = document.querySelector(".menu-icon");
-    const menu = document.querySelector("#menu");
+    <script>
+        const mediaFireLink = "TU_ENLACE_DE_DESCARGA_DE_MEDIAFIRE";
 
-    menuIcon.addEventListener("click", () => {
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
-    });
-  </script>
+        function startDownload() {
+            window.location.href = mediaFireLink;
+        }
+
+        let timeLeft = 20;
+
+        function updateCountdown() {
+            const countdownElement = document.getElementById("countdown");
+            countdownElement.textContent = timeLeft;
+
+            if (timeLeft === 0) {
+                startDownload();
+            } else {
+                timeLeft--;
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+
+        updateCountdown();
+    </script>
 </body>
 
 </html>
