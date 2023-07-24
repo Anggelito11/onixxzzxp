@@ -2,7 +2,28 @@
 <html>
 <head>
   <title>Mi página de descargas</title>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1256223202782584"
+  <style>
+    /* Estilos para el menú desplegable */
+    .menu-icon {
+      cursor: pointer;
+      display: block;
+      text-align: center;
+      font-size: 24px;
+      padding: 10px;
+    }
+
+    .menu-items {
+      display: none;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-items li {
+      padding: 5px;
+    }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1256223202782584"
         crossorigin="anonymous"></script>
 
     <!-- BEGIN EZMOB TAG -->
@@ -13,6 +34,13 @@
     <!-- END EZMOB TAG -->
 </head>
 <body>
+
+<!-- Menú desplegable -->
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+<ul class="menu-items" id="menuItems">
+  <li><a href="#">Registrarse</a></li>
+  <li><a href="#">Iniciar sesión con Google</a></li>
+</ul>
 
 <h1>(MIGUEL V'O)</h1>
 <p><strong>✅AQUI PUEDES ENCONTRAR ARCHIVO REGEDIT NO RECOIL METADATA PARA IPHONE SIN NINGÚN TIPO DE PROBLEMA ESTE ARCHIVO ES PRÁCTICAMENTE INDETECTABLE😱</strong></p>
@@ -60,6 +88,18 @@
 <p>Etiquetas (TEXTO)</p>
 
 <p>Con tecnología de Blogger (TEXTO HASTA ABAJO EL MEDIO)</p>
+
+<script>
+  // Función para mostrar/ocultar el menú desplegable
+  function toggleMenu() {
+    var menuItems = document.getElementById("menuItems");
+    if (menuItems.style.display === "block") {
+      menuItems.style.display = "none";
+    } else {
+      menuItems.style.display = "block";
+    }
+  }
+</script>
 
 </body>
 </html>
