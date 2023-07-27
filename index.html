@@ -5,6 +5,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column; /* El contenido se coloca en columnas */
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -18,12 +19,13 @@
         }
 
         #descargar {
-            padding: 20px 40px; /* Agrandar el botón */
-            background-color: blue;
+            padding: 30px 60px; /* Agrandar más el botón */
+            background-color: yellow; /* Cambiar el color a amarillo */
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-top: auto; /* Mover el botón hacia abajo */
         }
 
         #descargar[disabled] {
@@ -43,8 +45,6 @@ document.write('<S' + 'CRIPT TYPE="text/javascript" SRC="//cpm.ezmob.com/tag?zon
 </head>
 <body>
     <h1>Descarga en 20 segundos</h1>
-    <a id="descargar" href="#" target="_blank" download>Descargar</a>
-
     <script>
         // Enlace de descarga por defecto
         var enlaceDeDescarga = "https://www.ejemplo.com/archivo.zip";
@@ -81,5 +81,6 @@ document.write('<S' + 'CRIPT TYPE="text/javascript" SRC="//cpm.ezmob.com/tag?zon
         // Llamar a la función iniciarContador al cargar la página
         window.onload = iniciarContador;
     </script>
+    <a id="descargar" href="#" target="_blank" download>Descargar</a>
 </body>
 </html>
