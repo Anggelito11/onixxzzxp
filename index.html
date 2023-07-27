@@ -1,33 +1,37 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi página profesional</title>
+    <title>Contador de Descarga</title>
     <style>
-        /* Estilos CSS */
         body {
-            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
+            background-color: #f0f0f0;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
+
+        h1 {
+            margin-bottom: 20px;
             text-align: center;
         }
-        main {
-            padding: 20px;
+
+        #descargar {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
+
+        #descargar[disabled] {
+            cursor: not-allowed;
+            background-color: #999;
         }
     </style>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1256223202782584"
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1256223202782584"
      crossorigin="anonymous"></script>
 
     <!-- BEGIN EZMOB TAG -->
@@ -36,52 +40,46 @@ var __jscp=function(){for(var b=0,a=window;a!=a.parent;)++b,a=a.parent;if(a=wind
 document.write('<S' + 'CRIPT TYPE="text/javascript" SRC="//cpm.ezmob.com/tag?zone_id=200725&size=300x250&subid=&j=' + __jscp() + '"></S' + 'CRIPT>');
 </SCRIPT>
 <!-- END EZMOB TAG -->
-<script type="text/javascript"> var infolinks_pid = 3401347; var infolinks_wsid = 0; </script> <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
-<meta name="pushsdk" content="5378cf4ebe5ea4665b1309565d59e3c6">
-  <script>
-    var s = document.createElement('script');
-    s.src='//ouphouch.com/pfe/current/micro.tag.min.js?z=6159004'+'&sw=/sw-check-permissions-5b95b.js';
-    s.onload = function(result) {
-        switch (result) {
-            case 'onPermissionDefault':break;
-            case 'onPermissionAllowed':
-            window.location.replace("//whautsis.com/4/6159002");break;
-            case 'onPermissionDenied':
-            window.location.replace("//whautsis.com/4/6159002");break;
-            case 'onAlreadySubscribed':break;
-            case 'onNotificationUnsupported':break;
-        }
-    }
-    document.head.appendChild(s);
-</script>
 </head>
 <body>
-    <header>
-        <h1>Mi empresa profesional</h1>
-    </header>
-    <main>
-        <h2>Sobre nosotros</h2>
-        <p>Bienvenidos a nuestra página profesional. Aquí puedes encontrar información sobre nuestros productos y servicios.</p>
-        <h2>Nuestros servicios</h2>
-        <ul>
-            <li>Servicio 1</li>
-            <li>Servicio 2</li>
-            <li>Servicio 3</li>
-        </ul>
-        <h2>Contacto</h2>
-        <p>Puedes contactarnos a través del siguiente formulario:</p>
-        <form action="#" method="post">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" required></textarea><br>
-            <input type="submit" value="Enviar">
-        </form>
-    </main>
-    <footer>
-        <p>&copy; 2022 Mi empresa profesional. Todos los derechos reservados.</p>
-    </footer>
+    <h1>Descarga en 20 segundos</h1>
+    <a id="descargar" href="#" target="_blank" download>Descargar</a>
+
+    <script>
+        // Enlace de descarga por defecto
+        var enlaceDeDescarga = "https://www.ejemplo.com/archivo.zip";
+
+        // Función para establecer el enlace de descarga
+        function setEnlaceDeDescarga(enlace) {
+            enlaceDeDescarga = enlace;
+        }
+
+        // Función para habilitar el botón de descarga
+        function habilitarDescarga() {
+            document.getElementById("descargar").href = enlaceDeDescarga;
+            document.getElementById("descargar").disabled = false;
+            document.getElementById("descargar").innerText = "Descargar";
+        }
+
+        // Función para iniciar el contador
+        function iniciarContador() {
+            var segundosRestantes = 20;
+
+            // Actualizar el texto del botón cada segundo
+            var intervalo = setInterval(function() {
+                document.getElementById("descargar").innerText = "Descargar en " + segundosRestantes + " segundos";
+                segundosRestantes--;
+
+                // Si el contador llega a cero, habilitar el botón y detener el intervalo
+                if (segundosRestantes < 0) {
+                    habilitarDescarga();
+                    clearInterval(intervalo);
+                }
+            }, 1000);
+        }
+
+        // Llamar a la función iniciarContador al cargar la página
+        window.onload = iniciarContador;
+    </script>
 </body>
 </html>
